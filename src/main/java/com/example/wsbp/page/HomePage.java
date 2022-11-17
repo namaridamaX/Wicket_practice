@@ -7,6 +7,9 @@ import org.wicketstuff.annotation.mount.MountPath;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.model.Model;
 
+import com.example.wsbp.service.ISampleService;
+import org.apache.wicket.spring.injection.annot.SpringBean;
+
 @WicketHomePage
 @MountPath("Home")
 
@@ -23,5 +26,12 @@ public class HomePage extends WebPage {
         var name_model = Model.of("新木魁");
         var name = new Label("name",name_model);
         add(name);
+
+        var timeModel = Model.of(service.makeCurrentHMS());
+        var timeLabel = new Label("time", timeModel);
+        add(timeLabel);
     }
+
+    @SpringBean
+    private ISampleService service;
 }
