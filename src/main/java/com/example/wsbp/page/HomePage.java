@@ -37,7 +37,7 @@ public class HomePage extends WebPage {
         var random_Label = new Label("random",random_Model);
         add(random_Label);
 
-        var toUserMakerLink = new BookmarkablePageLink<>("toUserMaker",UserMakePage.class);
+        var toUserMakerLink = new BookmarkablePageLink<>("toUserMaker", UserMakerPage.class);
         add(toUserMakerLink);
     }
 
