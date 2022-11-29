@@ -1,6 +1,7 @@
 package com.example.wsbp.page;
 
 import com.giffing.wicket.spring.boot.context.scan.WicketHomePage;
+import org.apache.wicket.core.request.handler.BookmarkableListenerRequestHandler;
 import org.apache.wicket.markup.html.WebPage;
 import org.wicketstuff.annotation.mount.MountPath;
 
@@ -39,6 +40,9 @@ public class HomePage extends WebPage {
 
         var toUserMakerLink = new BookmarkablePageLink<>("toUserMaker", UserMakerPage.class);
         add(toUserMakerLink);
+
+        var toUserDeleteLink = new BookmarkablePageLink<>("toUserDelete",UserDeletePage.class);
+        add(toUserDeleteLink);
     }
 
     @SpringBean
