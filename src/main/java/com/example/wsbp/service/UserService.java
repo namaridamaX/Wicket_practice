@@ -24,4 +24,11 @@ public class UserService implements IUserService{
         int n = authUserRepos.delete(userName);
         System.out.println("削除行数:" + n);
     }
+
+    @Override
+    public boolean existsUser(String userName,String userPass){
+        var result = authUserRepos.exists(userName,userPass);
+        System.out.println(userName + "," + userPass + "のユーザ照合結果："+result);
+        return result;
+    }
 }
