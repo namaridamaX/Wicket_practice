@@ -2,6 +2,7 @@ package com.example.wsbp.service;
 
 import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
+import java.util.Random;
 
 @Service
 public class SampleService implements ISampleService {
@@ -13,5 +14,12 @@ public class SampleService implements ISampleService {
                 +":"+now.getMinute()
                 +":"+now.getSecond();
         return str;
+    }
+
+    @Override
+    public int makeRandInt(){
+        Random random = new Random();
+        int ran = random.nextInt(10);
+        return ran;
     }
 }

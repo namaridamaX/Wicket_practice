@@ -10,6 +10,8 @@ import org.apache.wicket.model.Model;
 import com.example.wsbp.service.ISampleService;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
+import org.apache.wicket.markup.html.link.BookmarkablePageLink;
+
 @WicketHomePage
 @MountPath("Home")
 
@@ -30,6 +32,13 @@ public class HomePage extends WebPage {
         var timeModel = Model.of(service.makeCurrentHMS());
         var timeLabel = new Label("time", timeModel);
         add(timeLabel);
+
+        var random_Model = Model.of(service.makeRandInt());
+        var random_Label = new Label("random",random_Model);
+        add(random_Label);
+
+        var toUserMakerLink = new BookmarkablePageLink<>("toUserMaker",UserMakePage.class);
+        add(toUserMakerLink);
     }
 
     @SpringBean
