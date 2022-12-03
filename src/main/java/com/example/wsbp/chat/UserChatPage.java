@@ -1,7 +1,9 @@
 package com.example.wsbp.chat;
 
+import com.example.wsbp.MySession;
 import com.example.wsbp.data.ChatUser;
 import com.example.wsbp.page.HomePage;
+import com.example.wsbp.page.signed.SignPage;
 import com.example.wsbp.repository.IAuthUserRepository;
 import com.example.wsbp.service.IUserService;
 import org.apache.wicket.authroles.authorization.strategies.role.Roles;
@@ -11,6 +13,7 @@ import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
+import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.model.Model;
@@ -31,8 +34,16 @@ public class UserChatPage extends WebPage {
         var userNameModel = Model.of("");
         var userMessageModel = Model.of("");
 
-        var toHomeLink = new BookmarkablePageLink<>("toHome", HomePage.class);
-        add(toHomeLink);
+        Link<Void> signoutLink = new Link<Void>("sign-out"){
+            @Override
+            public void onClick(){
+                //セッションの破棄
+                MySession.get().invalidate();
+                //SignPageへ移動
+                setResponsePage(SignPage.class);
+            }
+        };
+        add(signoutLink);
 
         Form<Void> messageInform = new Form<>("messageInfo"){
             @Override

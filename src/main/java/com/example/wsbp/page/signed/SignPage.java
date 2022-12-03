@@ -1,6 +1,7 @@
 package com.example.wsbp.page.signed;
 
 import com.example.wsbp.MySession;
+import com.example.wsbp.page.HomePage;
 import com.example.wsbp.page.signed.SignedPage;
 import com.example.wsbp.service.IUserService;
 import com.giffing.wicket.spring.boot.context.scan.WicketSignInPage;
@@ -8,6 +9,7 @@ import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.PasswordTextField;
 import org.apache.wicket.markup.html.form.TextField;
+import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 import org.apache.wicket.validation.validator.StringValidator;
@@ -60,5 +62,8 @@ public class SignPage extends WebPage{
             }
         };
         userInfoForm.add(userPassField);
+
+        var toHomeLink = new BookmarkablePageLink<>("toHome", HomePage.class);
+        add(toHomeLink);
     }
 }

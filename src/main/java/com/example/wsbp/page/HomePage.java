@@ -1,5 +1,6 @@
 package com.example.wsbp.page;
 
+import com.example.wsbp.page.signed.SignPage;
 import com.giffing.wicket.spring.boot.context.scan.WicketHomePage;
 import org.apache.wicket.core.request.handler.BookmarkableListenerRequestHandler;
 import org.apache.wicket.markup.html.WebPage;
@@ -51,6 +52,9 @@ public class HomePage extends WebPage {
         //id=toUserDeleteを押すとUserDeletePageに画面遷移する
         var toUserDeleteLink = new BookmarkablePageLink<>("toUserDelete",UserDeletePage.class);
         add(toUserDeleteLink);
+
+        var toSignLink = new BookmarkablePageLink<>("toSign", SignPage.class);
+        add(toSignLink);
     }
 
     @SpringBean
