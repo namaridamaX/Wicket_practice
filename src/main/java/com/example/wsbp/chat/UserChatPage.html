@@ -1,0 +1,23 @@
+<html xmlns:wicket="http://wicket.apache.org">
+<head></head>
+<body>
+<h1>投稿する</h1>
+<form action="#" wicket:id="messageInfo">
+    <div><input type="text" wicket:id="userName"/></div>
+    <div><input type="text" wicket:id="userMessage"/></div>
+    <div>
+        <button type="submit">投稿</button>
+    </div>
+</form>
+
+<div><a href="#" wicket:id="toHome">戻る</a> </div>
+
+<h2>投稿されたメッセージ</h2>
+<ol>
+    <li wicket:id="m">
+        <span wicket:id="usercompName"></span>:
+        <span wicket:id="usercompMessage"></span>
+    </li>
+</ol>
+</body>
+</html>

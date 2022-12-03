@@ -1,6 +1,7 @@
 package com.example.wsbp.repository;
 
 import com.example.wsbp.data.AuthUser;
+import com.example.wsbp.data.ChatUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.DataClassRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -63,6 +64,28 @@ public class AuthUserRepository implements IAuthUserRepository {
         //?を使うSQLであれば、第３引数のObject型配列の要素に順番に設定する。
         List<AuthUser> users = jdbc.query(sql,
                 DataClassRowMapper.newInstance(AuthUser.class));
+
+        //取り出したデータ(Listの要素)をそのまま返り値とする
+        return users;
+    }
+
+    @Override
+    public int Chat_insert(String userName,String userMessage){
+        var sql = "insert into chat values (?, ?)";
+        var n = jdbc.update(sql, userName, userMessage);
+        return n;
+    }
+
+    @Override
+    public List<ChatUser> Chat_find(){
+        //auth_user テーブルの user_name,user_pass を検索する
+        String sql = "select user_name, user_chat from chat";
+
+        //検索用のSQLを実行する方法
+        //取り出したいデータの型二よって、第二引数のRowMapperを切り替える
+        //?を使うSQLであれば、第３引数のObject型配列の要素に順番に設定する。
+        List<ChatUser> users = jdbc.query(sql,
+                DataClassRowMapper.newInstance(ChatUser.class));
 
         //取り出したデータ(Listの要素)をそのまま返り値とする
         return users;

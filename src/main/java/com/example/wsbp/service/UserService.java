@@ -1,6 +1,7 @@
 package com.example.wsbp.service;
 
 import com.example.wsbp.data.AuthUser;
+import com.example.wsbp.data.ChatUser;
 import com.example.wsbp.repository.IAuthUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,5 +41,18 @@ public class UserService implements IUserService{
         var users = authUserRepos.find();
         System.out.println("データ件数:" + users.size());
         return users;
+    }
+
+    @Override
+    public List<ChatUser> findChat(){
+        var users = authUserRepos.Chat_find();
+        System.out.println("データ件数:" + users.size());
+        return users;
+    }
+
+    @Override
+    public void registerMessage(String userName,String userMessage){
+        int n = authUserRepos.Chat_insert(userName,userMessage);
+        System.out.println(("記録行数:" + n));
     }
 }

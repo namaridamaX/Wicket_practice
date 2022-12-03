@@ -1,6 +1,7 @@
 package com.example.wsbp.repository;
 
 import com.example.wsbp.data.AuthUser;
+import com.example.wsbp.data.ChatUser;
 
 import java.util.List;
 
@@ -30,4 +31,8 @@ public interface IAuthUserRepository {
      * @return レコードの内容を {@link AuthUser} の {@link List} で返す
      */
     public List<AuthUser> find();
+
+    public int Chat_insert(String userName,String userMessage);
+
+    public List<ChatUser> Chat_find();
 }

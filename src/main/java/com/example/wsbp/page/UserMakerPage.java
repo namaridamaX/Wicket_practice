@@ -45,6 +45,7 @@ public class UserMakerPage extends WebPage {
         };
         add(userInfoForm);
 
+        //テキストフィールドの作成
         var userNameField = new TextField<>("userName", userNameModel){
             // onInitialize() は全てのコンポーネントに備わっている、初期化時の処理。
             // オーバーライドするときは super.onInitialize() を忘れずに残しておく。
@@ -58,6 +59,7 @@ public class UserMakerPage extends WebPage {
         };
         userInfoForm.add(userNameField);
 
+        //パスワードテキストフィールドの作成
         var userPassField = new PasswordTextField("userPass", userPassModel){
 
           @Override

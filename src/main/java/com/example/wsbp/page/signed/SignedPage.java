@@ -1,12 +1,14 @@
 package com.example.wsbp.page.signed;
 
 import com.example.wsbp.MySession;
+import com.example.wsbp.chat.UserChatPage;
 import com.example.wsbp.data.AuthUser;
 import com.example.wsbp.service.IUserService;
 import org.apache.wicket.authroles.authorization.strategies.role.Roles;
 import org.apache.wicket.authroles.authorization.strategies.role.annotations.AuthorizeInstantiation;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
+import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
@@ -28,6 +30,9 @@ public class SignedPage extends WebPage{
         var name = Model.of(MySession.get().getUserName());
         var userNameLabel = new Label("userName",name);
         add(userNameLabel);
+
+        var toChatPageLink = new BookmarkablePageLink<>("toChatPage", UserChatPage.class);
+        add(toChatPageLink);
 
         Link<Void> signoutLink = new Link<Void>("signout"){
             @Override
