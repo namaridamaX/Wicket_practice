@@ -19,17 +19,20 @@ public class UserService implements IUserService{
     }
 
     @Override
+    //引数で名前とパスワードをいただいて、IAuthUserRepositoryのinsertメソッドを呼び出す。・・・(2)
     public void registerUser(String userName,String userPass){
         int n = authUserRepos.insert(userName,userPass);
         System.out.println("記録行数:" + n);
     }
 
+    //(2)と仕事自体はほぼ一緒
     public void deleteUser(String userName){
         int n = authUserRepos.delete(userName);
         System.out.println("削除行数:" + n);
     }
 
     @Override
+    //(2)と仕事自体はほぼ一緒
     public boolean existsUser(String userName,String userPass){
         var result = authUserRepos.exists(userName,userPass);
         System.out.println(userName + "," + userPass + "のユーザ照合結果："+result);
@@ -37,6 +40,7 @@ public class UserService implements IUserService{
     }
 
     @Override
+    //AuthUser型のListを返す。中身は名前とパスワードが入っている。
     public List<AuthUser> findAuthUser(){
         var users = authUserRepos.find();
         System.out.println("データ件数:" + users.size());
@@ -44,6 +48,7 @@ public class UserService implements IUserService{
     }
 
     @Override
+    //ChatUser型のListを返す。中身は名前とメッセージが入っている。
     public List<ChatUser> findChat(){
         var users = authUserRepos.Chat_find();
         System.out.println("データ件数:" + users.size());
@@ -51,6 +56,7 @@ public class UserService implements IUserService{
     }
 
     @Override
+    //(2)と仕事自体はほぼ一緒
     public void registerMessage(String userName,String userMessage){
         int n = authUserRepos.Chat_insert(userName,userMessage);
         System.out.println(("記録行数:" + n));

@@ -26,9 +26,12 @@ public class UserDeletePage extends WebPage {
         var toHomeLink = new BookmarkablePageLink<>("toHome", HomePage.class);
         add(toHomeLink);
 
+        //userInfo2というひとまとまりを作る
         Form<Void> userInfoForm = new Form<Void>("userInfo2") {
             @Override
+            //送信するボタンを押したときの動作
             protected void onSubmit() {
+                //入力欄の名前フォームから名前を取り出しuserNameに格納
                 var userName = userNameModel.getObject();
                 var msg = "送信データ："
                         + userName;

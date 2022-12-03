@@ -31,8 +31,8 @@ public class UserChatPage extends WebPage {
         var userNameModel = Model.of("");
         var userMessageModel = Model.of("");
 
-        var toHomelink = new BookmarkablePageLink<>("toHome", HomePage.class);
-        add(toHomelink);
+        var toHomeLink = new BookmarkablePageLink<>("toHome", HomePage.class);
+        add(toHomeLink);
 
         Form<Void> messageInform = new Form<>("messageInfo"){
             @Override
@@ -59,8 +59,8 @@ public class UserChatPage extends WebPage {
             @Override
             protected void onInitialize(){
                 super.onInitialize();
-                // 文字列の長さを8〜32文字に制限するバリデータ
-                var validator = StringValidator.lengthBetween(8,32);
+                // 文字列の長さを1〜100文字に制限するバリデータ
+                var validator = StringValidator.lengthBetween(1,100);
                 add(validator);
             }
         };
@@ -72,8 +72,8 @@ public class UserChatPage extends WebPage {
             @Override
             protected void onInitialize(){
                 super.onInitialize();
-                // 文字列の長さを8〜32文字に制限するバリデータ
-                var validator = StringValidator.lengthBetween(8,32);
+                // 文字列の長さを1〜100文字に制限するバリデータ
+                var validator = StringValidator.lengthBetween(1,100);
                 add(validator);
             }
         };
@@ -90,11 +90,11 @@ public class UserChatPage extends WebPage {
                 var chatUser = itemModel.getObject();
 
                 var userNameModel = Model.of(chatUser.getUserName());
-                var userNameLabel = new Label("usercompName",userNameModel);
+                var userNameLabel = new Label("user-compName",userNameModel);
                 listItem.add(userNameLabel);
 
                 var userMessageModel = Model.of(chatUser.getUserMessage());
-                var userMessageLabel = new Label("usercompMessage",userMessageModel);
+                var userMessageLabel = new Label("user-compMessage",userMessageModel);
                 listItem.add(userMessageLabel);
             }
         };

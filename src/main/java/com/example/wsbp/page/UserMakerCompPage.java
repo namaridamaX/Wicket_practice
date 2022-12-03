@@ -10,6 +10,9 @@ import org.wicketstuff.annotation.mount.MountPath;
 public class UserMakerCompPage extends WebPage {
 
     public UserMakerCompPage(IModel<String> userNameModel) {
+
+        //UserNameModelにはユーザー登録した名前が入っている
+        //UserMakerCompPage.htmlのid=userNameにuserNameModelを上書きする
         var userNameLabel = new Label("userName", userNameModel);
         add(userNameLabel);
 

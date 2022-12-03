@@ -34,7 +34,7 @@ public class SignedPage extends WebPage{
         var toChatPageLink = new BookmarkablePageLink<>("toChatPage", UserChatPage.class);
         add(toChatPageLink);
 
-        Link<Void> signoutLink = new Link<Void>("signout"){
+        Link<Void> signoutLink = new Link<Void>("sign-out"){
             @Override
             public void onClick(){
                 //セッションの破棄

@@ -10,6 +10,7 @@ import org.wicketstuff.annotation.mount.MountPath;
 public class UserDeleteCompPage extends WebPage {
 
     public UserDeleteCompPage(IModel<String> userNameModel) {
+        //UserDeleteCompPageのid=userNameに削除した人の名前が入っているuserNameModelを上書きする
         var userNameLabel = new Label("userName", userNameModel);
         add(userNameLabel);
 

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
+//データベースいじる系のメソッドをここに書いていく
 public class AuthUserRepository implements IAuthUserRepository {
 
     // SpringJDBCのデータベース制御用インスタンス

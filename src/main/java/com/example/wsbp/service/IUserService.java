@@ -5,6 +5,7 @@ import com.example.wsbp.data.ChatUser;
 
 import java.util.List;
 
+//ここにimplementsしてるUserServiceで作ったメソッドを保存しとく感じ
 public interface IUserService {
     public void registerUser(String userName,String userPass);
     public void deleteUser(String userName);

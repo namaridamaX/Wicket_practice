@@ -5,6 +5,7 @@ import com.example.wsbp.data.ChatUser;
 
 import java.util.List;
 
+//IUserServiceと一緒。ここにAuthUserRepositoryで作ったメソッドを保存しているイメージ
 public interface IAuthUserRepository {
     /**
      * ユーザー名とパスワードをAuthUserテーブルに記録する

@@ -2,6 +2,7 @@ package com.example.wsbp.data;
 
 import java.io.Serializable;
 
+// CHAT テーブルのデータを入れるクラス
 public class ChatUser implements Serializable{
 
         private final String userName;
